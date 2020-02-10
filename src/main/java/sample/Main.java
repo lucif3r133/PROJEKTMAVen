@@ -21,13 +21,12 @@ public class Main extends Application {
         MainController controller = (MainController) loader.getController();
         controller.setStage(primaryStage);
         primaryStage.setTitle("CompanyAlpha");
-        primaryStage.setMinHeight(300);
-        primaryStage.setMinWidth(400);
+        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(500);
         primaryStage.setWidth(400);
-        primaryStage.setHeight(300);
-        primaryStage.setMaxHeight(600);
-        primaryStage.setMaxWidth(800);
-        //primaryStage.getIcons().add(new Image("icon.jpg"));
+        primaryStage.setHeight(500);
+        primaryStage.setMaxHeight(1000);
+        primaryStage.setMaxWidth(1200);
         primaryStage.setOnCloseRequest((e)->(MainController.exit()));
         primaryStage.setScene(scene);
         primaryStage.show();

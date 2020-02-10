@@ -19,7 +19,8 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable{
 
-    private String companyName="CompanyName";
+    Firma company = new Firma();
+
     private Boolean czyUstawione=false;
 
     Stage stage;
@@ -32,7 +33,7 @@ public class MainController implements Initializable{
     Button exitButton, setCompanyNameButton, secondWindowButton;
 
     @FXML
-    TextField companyNameField;
+    TextField companyNameField, wlascField, rodzajField;
 
     @FXML
     Label companyNameLabel, companyNameErrorLabel, startLabel;
@@ -41,7 +42,7 @@ public class MainController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        startLabel.setText("Podaj nazwe firmy:");
+        startLabel.setText("Podaj dane firmy:");
     }
 
     public static void exit()
@@ -56,14 +57,17 @@ public class MainController implements Initializable{
         System.exit(0);
     }
 
-    public void setCompanyName() {
-        if(companyNameField.getText().equals("")) {
-            companyNameErrorLabel.setText("Wprowadź Nazwe Firmy!");
+    public void setCompanyInfo() {
+        if(companyNameField.getText().equals("") || wlascField.getText().equals("") || rodzajField.getText().equals(""))  {
+            companyNameErrorLabel.setText("Wprowadź Dane Firmy!");
         }
         else
         {
-            companyName = companyNameField.getText();
-            companyNameLabel.setText("Zarządzaj firmą " + companyName + " z naszą pomocą, dziękujemy za zaufanie!");
+            company.setCompanyName(companyNameField.getText());
+            company.setRodzajDzialalnosci(rodzajField.getText());
+            company.setWlasciciel(wlascField.getText());
+
+            companyNameLabel.setText("Zarządzaj firmą " + company.getCompanyName() + " z naszą pomocą, dziękujemy za zaufanie!");
             czyUstawione = true;
             companyNameErrorLabel.setText("");
         }
@@ -84,18 +88,19 @@ public class MainController implements Initializable{
             Scene scene = new Scene(fxmlloader.load());
 
             stage = new Stage();
-            stage.setTitle(companyName);
+            stage.setTitle(company.getCompanyName() + " / Wlasciciel: " + company.getWlasciciel() + " / Działalność: " + company.getRodzajDzialalnosci() );
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
-            //stage.getIcons().add(new Image("sample/icon.jpg"));
             stage.setOnCloseRequest((e)->(secondWindow.exitSecondWindow()));
             stage.setScene(scene);
             stage.show();
+
         }
 
     }
 
+    public void getCompanyDetails(){
 
+        companyNameErrorLabel.setText( " Firma:  " + company.getCompanyName() + " / Wlasciciel: " + company.getWlasciciel() + " / Działalność: " + company.getRodzajDzialalnosci());
+    }
 }
-
-

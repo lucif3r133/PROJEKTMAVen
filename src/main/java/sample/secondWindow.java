@@ -1,37 +1,25 @@
 package sample;
 
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 public class secondWindow implements Initializable {
 
 
     @FXML
-    Button secondWindowClose, addButton, setTable, createNewTable, fullTable, deleteButton;
+    Button secondWindowClose, addButton, setTable, createNewTable, fullTable, deleteButton, companyDetails;
 
     @FXML
-    TextField tableNameField, nameField, positionField, idField, ageField, salaryField, bonusField, childrenField, deleteidField;
+    TextField tableNameField, nameField, positionField, idField, ageField, salaryField, bonusField, childrenField, deleteidField, bonusAddField, bonusidField  ;
 
     @FXML
     Label infoLabel;
 
-    @FXML private TableView<Pracownik> tableView;
-    @FXML private TableColumn<Pracownik, String> imieCol;
-    @FXML private TableColumn<Pracownik, String> stanowiskoCol;
-    @FXML private TableColumn<Pracownik, Integer> idCol;
-    @FXML private TableColumn<Pracownik, Integer> wiekCol;
-    @FXML private TableColumn<Pracownik, Integer> pensjaCol;
-    @FXML private TableColumn<Pracownik, Integer> premiaCol;
-    @FXML private TableColumn<Pracownik, Integer> liczbaDzieciCol;
 
     private String tableName;
 
@@ -56,7 +44,7 @@ public class secondWindow implements Initializable {
     }
 
 
-    DataBase baza = new DataBase();
+    PracownicyBaza baza = new PracownicyBaza();
 
 
     public void setNewTable(){
@@ -111,7 +99,9 @@ public class secondWindow implements Initializable {
 
     }
 
+    public void bonusAccept(){
+
+        baza.dajPremie(tableName, Integer.parseInt(bonusidField.getText()), Integer.parseInt(bonusAddField.getText()));
+
+    }
 }
-
-
-

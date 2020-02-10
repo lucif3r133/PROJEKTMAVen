@@ -2,13 +2,13 @@ package sample;
 
 import java.sql.*;
 
-public class DataBase {
+public class PracownicyBaza {
 
     /* private int id = 1; */
 
     private Connection con;
 
-    public DataBase() {
+    public PracownicyBaza() {
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection("jdbc:postgresql://158.75.112.103:55655/stud2",
@@ -91,5 +91,17 @@ public class DataBase {
         }
     }
 
+    public void dajPremie(String table, int id, int newdata) {
+        try {
+            Statement stmt = con.createStatement();
+            String sql = "UPDATE " + table +
+                    " SET BONUS = " + newdata
+                    + " WHERE ID=" + id + ";" ;
+            stmt.executeUpdate(sql);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

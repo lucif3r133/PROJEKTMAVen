@@ -6,30 +6,30 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="400.0" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="400.0" prefHeight="358.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
    <children>
 
       <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButton" prefHeight="25.0" prefWidth="73.0" text="Zamknij" StackPane.alignment="CENTER">
          <StackPane.margin>
-            <Insets left="100.0" top="20.0" />
+            <Insets left="100.0" top="80.0" />
          </StackPane.margin>
       </Button>
 
-      <Label fx:id="startLabel" >
+      <Label fx:id="startLabel" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="140.0" />
+            <Insets bottom="250.0" left="20.0" />
          </StackPane.margin>
       </Label>
 
-      <Button fx:id="setCompanyNameButton" mnemonicParsing="false" onAction="#setCompanyName" prefHeight="25.0" prefWidth="73.0" text="Zapisz">
+      <Button fx:id="setCompanyNameButton" mnemonicParsing="false" onAction="#setCompanyInfo" prefHeight="25.0" prefWidth="73.0" text="Zapisz">
          <StackPane.margin>
-            <Insets right="100.0" top="20.0" />
+            <Insets right="100.0" top="80.0" />
          </StackPane.margin>
       </Button>
 
       <TextField fx:id="companyNameField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0">
          <StackPane.margin>
-            <Insets bottom="70.0" />
+            <Insets bottom="200.0" />
          </StackPane.margin>
       </TextField>
 
@@ -39,17 +39,53 @@
          </StackPane.margin>
       </Label>
 
-      <Button fx:id="secondWindowButton" mnemonicParsing="false" text="Dalej" onAction="#goToSecondWindow">
+      <Button fx:id="secondWindowButton" mnemonicParsing="false" onAction="#goToSecondWindow" text="Dalej">
          <StackPane.margin>
             <Insets top="200.0" />
          </StackPane.margin>
       </Button>
 
-      <Label fx:id="companyNameErrorLabel" >
+      <Label fx:id="companyNameErrorLabel">
          <StackPane.margin>
-            <Insets top="100.0" />
+            <Insets top="150.0" />
          </StackPane.margin>
       </Label>
+
+      <Label text="Nazwa Firmy">
+         <StackPane.margin>
+            <Insets bottom="250.0" right="120.0" />
+         </StackPane.margin>
+      </Label>
+
+      <Label text="Właściciel">
+         <StackPane.margin>
+            <Insets bottom="150.0" right="140.0" />
+         </StackPane.margin>
+      </Label>
+
+      <TextField fx:id="wlascField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0">
+         <StackPane.margin>
+            <Insets bottom="100.0" />
+         </StackPane.margin>
+      </TextField>
+
+      <TextField fx:id="rodzajField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0">
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </TextField>
+
+      <Label text="Rodzaj Działalnosci">
+         <StackPane.margin>
+            <Insets bottom="50.0" right="90.0" />
+         </StackPane.margin>
+      </Label>
+
+      <Button mnemonicParsing="false" onAction="#getCompanyDetails" text="Wyświetl Aktualne Dane Firmy" StackPane.alignment="BOTTOM_CENTER">
+         <StackPane.margin>
+            <Insets bottom="30.0" />
+         </StackPane.margin>
+      </Button>
 
    </children>
 </StackPane>
