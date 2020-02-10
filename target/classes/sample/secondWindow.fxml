@@ -15,7 +15,7 @@
             <Insets bottom="20.0" right="20.0" />
          </StackPane.margin>
       </Button>
-      <Button fx:id="addButton" mnemonicParsing="false" text="Dodaj" StackPane.alignment="CENTER_LEFT">
+      <Button fx:id="addButton" mnemonicParsing="false" text="Dodaj" StackPane.alignment="CENTER_LEFT" onAction="#addPerson">
          <StackPane.margin>
             <Insets bottom="400.0" left="20.0" />
          </StackPane.margin>
@@ -40,22 +40,22 @@
             <Insets left="260.0" top="30.0" />
          </StackPane.margin>
       </Label>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="29.0" StackPane.alignment="TOP_LEFT">
+      <TextField fx:id="idField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="29.0" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="22.0" top="50.0" />
          </StackPane.margin>
       </TextField>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+      <TextField fx:id="nameField" maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="55.0" top="50.0" />
          </StackPane.margin>
       </TextField>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="37.0" StackPane.alignment="TOP_LEFT">
+      <TextField fx:id="ageField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="37.0" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="210.0" top="50.0" />
          </StackPane.margin>
       </TextField>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="58.0" StackPane.alignment="TOP_LEFT">
+      <TextField fx:id="salaryField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="58.0" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="250.0" top="50.0" />
          </StackPane.margin>
@@ -89,20 +89,65 @@
             <Insets left="460.0" top="30.0" />
          </StackPane.margin>
       </Label>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="61.0" StackPane.alignment="TOP_LEFT">
+      <TextField fx:id="positionField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="61.0" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="310.0" top="50.0" />
          </StackPane.margin>
       </TextField>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="69.0" StackPane.alignment="TOP_LEFT">
+      <TextField fx:id="childrenField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="69.0" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="380.0" top="50.0" />
          </StackPane.margin>
       </TextField>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="61.0" StackPane.alignment="TOP_LEFT">
+      <TextField fx:id="bonusField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="61.0" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="455.0" top="50.0" />
          </StackPane.margin>
       </TextField>
+      <TextField fx:id="tableNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="156.0" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="50.0" left="30.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button fx:id="createNewTable" mnemonicParsing="false" onAction="#setNewTable" text="Stwórz Nową Tabele" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="20.0" left="30.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="setTable" mnemonicParsing="false" onAction="#setETable" text="Połącz do istniejącej" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="20.0" left="160.0" />
+         </StackPane.margin>
+      </Button>
+      <Label prefHeight="17.0" prefWidth="79.0" text="Nazwa tabeli:" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="85.0" left="30.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="infoLabel" StackPane.alignment="BOTTOM_CENTER">
+         <StackPane.margin>
+            <Insets bottom="20.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="fullTable" mnemonicParsing="false" onAction="#selectFullTable" text="Wypisz całą tabele" StackPane.alignment="BOTTOM_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="20.0" right="100.0" />
+         </StackPane.margin>
+      </Button>
+      <TextField fx:id="deleteidField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="33.0" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="300.0" left="160.0" />
+         </StackPane.margin>
+      </TextField>
+      <Label text="Zwolnij Pracownika o ID:" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="300.0" left="20.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="deleteButton" mnemonicParsing="false" text="Potwierdź" onAction="#deletePerson">
+         <StackPane.margin>
+            <Insets bottom="300.0" right="720.0" />
+         </StackPane.margin>
+      </Button>
    </children>
 </StackPane>

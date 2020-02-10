@@ -20,7 +20,6 @@ public class Main extends Application {
 
         MainController controller = (MainController) loader.getController();
         controller.setStage(primaryStage);
-
         primaryStage.setTitle("CompanyAlpha");
         primaryStage.setMinHeight(300);
         primaryStage.setMinWidth(400);
