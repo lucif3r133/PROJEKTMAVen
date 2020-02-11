@@ -7,7 +7,7 @@ public class PracownicyBaza {
 
     /* private int id = 1; */
 
-    String wynik;
+    private String wynik;
 
     private Connection con;
 

@@ -30,7 +30,6 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest((e)->(MainController.exit()));
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
 
