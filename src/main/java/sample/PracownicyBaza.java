@@ -1,10 +1,13 @@
 package sample;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class PracownicyBaza {
 
     /* private int id = 1; */
+
+    String wynik;
 
     private Connection con;
 
@@ -39,8 +42,9 @@ public class PracownicyBaza {
         }
     }
 
-    public void selectTable(String tableName) {
+    public String selectTable(String tableName) {
         try {
+            wynik = "";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM " + tableName + ";" );
             while ( rs.next() ) {
@@ -51,20 +55,17 @@ public class PracownicyBaza {
                 String  position = rs.getString("position");
                 int children  = rs.getInt("children");
                 float bonus = rs.getFloat("bonus");
-                System.out.println( "ID = " + id );
-                System.out.println( "imie i nazwisko = " + name );
-                System.out.println( "wiek = " + age );
-                System.out.println( "pensja = " + salary );
-                System.out.println( "stanowisko = " + position );
-                System.out.println( "liczba dzieci = " + children );
-                System.out.println( "premia = " + bonus );
-                System.out.println();
+
+                wynik = wynik + ("ID: " + id + "\nImie i nazwisko: " + name + "\nWiek: " + age + "\nPensja: " + salary + "\nStanowisko: " + position + "\nDzieci: " + children + "\nPremia: " + bonus + "\n\n" );
+
             }
             stmt.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+        return wynik;
+        }
 
     public void dodajPracownika(String tableName, int id, String name, int age, int salary, String position, int children, int bonus) {
         Statement stmt = null;

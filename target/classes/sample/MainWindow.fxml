@@ -41,7 +41,7 @@
 
       <Button fx:id="secondWindowButton" mnemonicParsing="false" onAction="#goToSecondWindow" text="Dalej">
          <StackPane.margin>
-            <Insets top="200.0" />
+            <Insets top="210.0" />
          </StackPane.margin>
       </Button>
 
@@ -83,7 +83,7 @@
 
       <Button mnemonicParsing="false" onAction="#getCompanyDetails" text="Wyświetl Aktualne Dane Firmy" StackPane.alignment="BOTTOM_CENTER">
          <StackPane.margin>
-            <Insets bottom="30.0" />
+            <Insets bottom="20.0" />
          </StackPane.margin>
       </Button>
 

@@ -20,9 +20,10 @@ public class secondWindow implements Initializable {
     @FXML
     Label infoLabel;
 
+    @FXML
+    TextArea textArea;
 
     private String tableName;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,8 +65,9 @@ public class secondWindow implements Initializable {
 
 
     public void selectFullTable(){
-
-        baza.selectTable(tableName);
+        clearTextArea();
+        String wynik = baza.selectTable(tableName);
+        textArea.setText(wynik);
 
     }
 
@@ -103,5 +105,9 @@ public class secondWindow implements Initializable {
 
         baza.dajPremie(tableName, Integer.parseInt(bonusidField.getText()), Integer.parseInt(bonusAddField.getText()));
 
+    }
+
+    public void clearTextArea(){
+        textArea.clear();
     }
 }
