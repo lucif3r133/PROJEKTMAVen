@@ -27,10 +27,8 @@ public class MainController implements Initializable{
 
     public Stage getStage() { return stage; }
 
-    void setStage(Stage stage) { this.stage = stage; }
 
-    @FXML
-    Button exitButton, setCompanyNameButton, secondWindowButton;
+    void setStage(Stage stage) { this.stage = stage; }
 
     @FXML
     TextField companyNameField, wlascField, rodzajField;
@@ -45,18 +43,27 @@ public class MainController implements Initializable{
         startLabel.setText("Podaj dane firmy:");
     }
 
+    /**
+     * STATYCZNA METODA ZAMYKAJĄCA PROGRAM
+     */
     public static void exit()
     {
         Platform.exit();
         System.exit(0);
     }
 
+    /**
+     * METODA ZAMYKAJĄCA PROGRAM
+     */
     public void exitButton()
     {
         Platform.exit();
         System.exit(0);
     }
 
+    /**
+     * METODA OBSŁUGIWANA PRZEZ PRZYCISK USTAWIAJĄCY USTAWIENIE WARTOŚCI W NASZYM OBIEKCIE FIRMA
+     */
     public void setCompanyInfo() {
         if(companyNameField.getText().equals("") || wlascField.getText().equals("") || rodzajField.getText().equals(""))  {
             companyNameErrorLabel.setText("Wprowadź Dane Firmy!");
@@ -74,6 +81,9 @@ public class MainController implements Initializable{
 
     }
 
+    /**
+     * METODA OTWIERAJĄCA NOWE OKNO PROGRAMU W KTÓRYM BĘDZIEMY OBSŁUGIWAĆ TABELE BAZY DANYCH INFORMACJI O NASZEJ FIRMIE
+     */
     public void goToSecondWindow() throws IOException {
         if(czyUstawione==false)
         {
@@ -99,6 +109,9 @@ public class MainController implements Initializable{
 
     }
 
+    /**
+     * METODA OBSŁUGIWANA PRZEZ PRZYCISK WYSWIETLAJĄCY WPROWADZONE PRZEZ NAS INFORMACJE O FIRMIE
+     */
     public void getCompanyDetails(){
 
         companyNameErrorLabel.setText( " Firma:  " + company.getCompanyName() + " / Wlasciciel: " + company.getWlasciciel() + " / Działalność: " + company.getRodzajDzialalnosci());

@@ -7,6 +7,9 @@ public class Firma {
     private String rodzajDzialalnosci;
 
 
+    /**
+     * KLASA W KTÓREJ ZAPISUJEMY INFORMACJE O FIRMIE W PIERRWSZYM OKNIE
+     */
     public Firma() {
     }
 

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.secondWindow">
@@ -190,56 +191,93 @@
             <Insets bottom="200.0" left="330.0" />
          </StackPane.margin>
       </Button>
+
       <TextArea fx:id="textArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="278.0" StackPane.alignment="CENTER_RIGHT">
          <StackPane.margin>
             <Insets bottom="50.0" right="20.0" />
          </StackPane.margin>
       </TextArea>
+
       <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearTextArea" text="Wyczyść" StackPane.alignment="BOTTOM_RIGHT">
          <StackPane.margin>
             <Insets bottom="20.0" right="250.0" />
          </StackPane.margin>
       </Button>
+
       <Label prefHeight="21.0" prefWidth="103.0" text="Edycja danych" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="130.0" left="20.0" />
          </StackPane.margin>
       </Label>
-      <RadioButton mnemonicParsing="false" text="Imie i Nazwisko" StackPane.alignment="CENTER_LEFT">
+
+      <RadioButton fx:id="nameRadio" mnemonicParsing="false" text="Imie i Nazwisko" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="50.0" left="20.0" />
          </StackPane.margin>
+         <toggleGroup>
+            <ToggleGroup fx:id="editGroup" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton mnemonicParsing="false" text="Pensja" StackPane.alignment="CENTER_LEFT">
+
+      <RadioButton fx:id="salaryRadio" mnemonicParsing="false" text="Pensja" toggleGroup="$editGroup" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets left="20.0" top="50.0" />
          </StackPane.margin>
       </RadioButton>
-      <RadioButton mnemonicParsing="false" text="Stanowisko" StackPane.alignment="CENTER_LEFT">
+
+      <RadioButton fx:id="posRadio" mnemonicParsing="false" text="Stanowisko" toggleGroup="$editGroup" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets left="20.0" top="100.0" />
          </StackPane.margin>
       </RadioButton>
-      <RadioButton mnemonicParsing="false" text="Dzieci" StackPane.alignment="CENTER_LEFT">
+
+      <RadioButton fx:id="childrenRadio" mnemonicParsing="false" text="Dzieci" toggleGroup="$editGroup" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets left="20.0" top="150.0" />
          </StackPane.margin>
       </RadioButton>
-      <RadioButton mnemonicParsing="false" text="Premia" StackPane.alignment="CENTER_LEFT">
+
+      <RadioButton fx:id="bonusRadio" mnemonicParsing="false" text="Premia" toggleGroup="$editGroup" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets left="20.0" top="200.0" />
          </StackPane.margin>
       </RadioButton>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="38.0" promptText="Id" StackPane.alignment="CENTER_LEFT">
+
+      <TextField fx:id="editIdField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="38.0" promptText="Id" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="50.0" left="170.0" />
+            <Insets bottom="65.0" left="170.0" />
          </StackPane.margin>
       </TextField>
-      <RadioButton mnemonicParsing="false" text="Wiek" StackPane.alignment="CENTER_LEFT">
+
+      <RadioButton fx:id="ageRadio" mnemonicParsing="false" text="Wiek" toggleGroup="$editGroup" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets left="20.0" />
          </StackPane.margin>
       </RadioButton>
+
+      <Label text="Id Pracownika:" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="130.0" left="170.0" />
+         </StackPane.margin>
+      </Label>
+
+      <Label text="Nowa Wartość:" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="170.0" />
+         </StackPane.margin>
+      </Label>
+
+      <TextField fx:id="editValueField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="154.0" promptText="New Value" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="170.0" top="60.0" />
+         </StackPane.margin>
+      </TextField>
+
+      <Button fx:id="editButton" mnemonicParsing="false" text="Potwierdź" onAction="#editValue" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="170.0" top="150.0" />
+         </StackPane.margin>
+      </Button>
 
    </children>
 </StackPane>

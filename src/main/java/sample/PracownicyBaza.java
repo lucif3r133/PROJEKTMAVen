@@ -1,16 +1,22 @@
 package sample;
 
 import java.sql.*;
-import java.util.ArrayList;
+
+
+/**
+ * KLASA UMOZLIWIAJĄCA POŁĄCZENIE SIĘ Z BAZĄ DANYCH I JEJ OBSŁUGĘ
+ */
 
 public class PracownicyBaza {
 
-    /* private int id = 1; */
 
     private String wynik;
 
     private Connection con;
 
+    /**
+     *  KONSTRUKTOR, TWORZENIE POŁACZENIA Z BAZĄ DANYCH
+     */
     public PracownicyBaza() {
         try {
             Class.forName("org.postgresql.Driver");
@@ -24,6 +30,10 @@ public class PracownicyBaza {
     }
 
 
+    /**
+     * METODA UMOZLIWIA STWORZENIE NOWEJ TABELI W BAZIE DANYCH
+     * @param tableName TO NAZWA TABELI W BAZIE Z KTÓREJ BĘDZIEMY KORZYSTALI
+     */
     public void createTable(String tableName) {
         try {
             Statement stmt = con.createStatement();
@@ -42,6 +52,11 @@ public class PracownicyBaza {
         }
     }
 
+    /**
+     * METODA UMOŻLIWIAJĄCA ZWRÓCENIE ZAWARTOŚCI TABELI KTÓRĄ AKTUALNIE USTAWILIŚMY
+     * @param tableName TO TABELA KTÓREJ ZAWARTOŚĆ CHCEMY ZWRÓCIĆ
+     * @return  ZAWARTOŚĆ TABELI
+     */
     public String selectTable(String tableName) {
         try {
             wynik = "";
@@ -67,6 +82,17 @@ public class PracownicyBaza {
         return wynik;
         }
 
+    /**
+     * METODA UMOŻLIWIAJĄCA DODANIE NOWEGO PRACOWNIKA DO TABELI Z NASTEPUJĄCYMI PARAMETRAMI
+     * @param tableName NAZWA TABELI DO KTÓREJ DODAJEMY PRACOWNIKA
+     * @param id ID PRACOWNIKA
+     * @param name IMIE I NAZWISKO PRACOWNIKA
+     * @param age WIEK PRACOWNIKA
+     * @param salary WYPŁATA PRACOWNIKA
+     * @param position POZYCJA W FIRMIA PRACOWNIKA
+     * @param children LICZBA DZIECI PRACOWNIKA
+     * @param bonus PREMIA PRACOWNIKA
+     */
     public void dodajPracownika(String tableName, int id, String name, int age, int salary, String position, int children, int bonus) {
         Statement stmt = null;
         try {
@@ -81,6 +107,11 @@ public class PracownicyBaza {
 
     }
 
+    /**
+     * METODA UMOŻLIWIAJĄCA USUNIĘCIE Z BAZY WIERSZA O WYBRANYM ID
+     * @param table NAZWA TABELI Z KTÓREJ CHCEMY USUNĄĆ WYBRANY WIERSZ
+     * @param id ID WIERSZA KTÓRY ZAMIERZEMY USUNĄĆ
+     */
     public void zwolnijPracownika(String table, int id) {
         try {
             Statement stmt = con.createStatement();
@@ -92,6 +123,12 @@ public class PracownicyBaza {
         }
     }
 
+    /**
+     * METODA UMOŻLIWIAJĄCA ZAAKTUALIZOWANIE ZAWARTOŚCI KOLUMNY BONUS DLA WYBRANEGO ID
+     * @param table NAZWA TABELI
+     * @param id ID
+     * @param newdata NOWA WARTOŚĆ KTÓRĄ WPROWADZIMY DO KOLUMNY BONUS
+     */
     public void dajPremie(String table, int id, int newdata) {
         try {
             Statement stmt = con.createStatement();
@@ -105,6 +142,13 @@ public class PracownicyBaza {
         }
     }
 
+    /**
+     * METODA AKTUALIZUJACA DANE WYBRANEGO WIERSZA TABELI
+     * @param table NAZWA TABELI
+     * @param whichdata NAZWA KOLUMNY KTÓRA CHCEMY ZAAKTUALIZOWAĆ
+     * @param idprac ID WIERSZA KTÓRY CHCEMY ZAAKTUALIZOWAĆ
+     * @param newdata NOWA ZAWARTOŚĆ KOLUMNY WYBRANEGO WIERSZA STRING
+     */
     public void akutalizujDane(String table, String whichdata, int idprac, String newdata) {
         try {
             Statement stmt = con.createStatement();
@@ -118,6 +162,13 @@ public class PracownicyBaza {
         }
     }
 
+    /**
+     * METODA AKTUALIZUJACA DANE WYBRANEGO WIERSZA TABELI
+     * @param table NAZWA TABELI
+     * @param whichdata NAZWA KOLUMNY KTÓRA CHCEMY ZAAKTUALIZOWAĆ
+     * @param idprac ID WIERSZA KTÓRY CHCEMY ZAAKTUALIZOWAĆ
+     * @param newdata NOWA ZAWARTOŚĆ KOLUMNY WYBRANEGO WIERSZA INT
+     */
     public void akutalizujDane(String table, String whichdata, int idprac, int newdata) {
         try {
             Statement stmt = con.createStatement();
