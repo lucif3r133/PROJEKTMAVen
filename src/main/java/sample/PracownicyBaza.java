@@ -104,5 +104,31 @@ public class PracownicyBaza {
             e.printStackTrace();
         }
     }
-}
 
+    public void akutalizujDane(String table, String whichdata, int idprac, String newdata) {
+        try {
+            Statement stmt = con.createStatement();
+            String sql = "UPDATE " + table +
+                    " SET " + whichdata + "= '" + newdata
+                    + "' WHERE ID=" + idprac + ";" ;
+            stmt.executeUpdate(sql);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void akutalizujDane(String table, String whichdata, int idprac, int newdata) {
+        try {
+            Statement stmt = con.createStatement();
+            String sql = "UPDATE " + table +
+                    " SET " + whichdata + "= " + newdata
+                    + " WHERE ID=" + idprac + ";" ;
+            stmt.executeUpdate(sql);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+}

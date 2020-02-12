@@ -12,16 +12,22 @@ public class secondWindow implements Initializable {
 
 
     @FXML
-    Button secondWindowClose, addButton, setTable, createNewTable, fullTable, deleteButton, companyDetails;
+    Button secondWindowClose, addButton, setTable, createNewTable, fullTable, deleteButton, editButton;
 
     @FXML
-    TextField tableNameField, nameField, positionField, idField, ageField, salaryField, bonusField, childrenField, deleteidField, bonusAddField, bonusidField  ;
+    TextField tableNameField, nameField, positionField, idField, ageField, salaryField,
+              bonusField, childrenField, deleteidField, bonusAddField, bonusidField,
+              editValueField, editIdField;
 
     @FXML
     Label infoLabel;
 
     @FXML
     TextArea textArea;
+
+    @FXML
+    RadioButton nameRadio, ageRadio, posRadio, childrenRadio, salaryRadio, bonusRadio;
+
 
     private String tableName;
 
@@ -110,4 +116,60 @@ public class secondWindow implements Initializable {
     public void clearTextArea(){
         textArea.clear();
     }
+
+
+    public void editValue(){
+        
+        String stringValue = null;
+        int intValue;
+        String editData = null;
+        int editId = Integer.parseInt(editIdField.getText());
+        
+        if(nameRadio.isSelected())
+        {
+            stringValue = editValueField.getText();
+            editData = "NAMELASTNAME";
+            baza.akutalizujDane(tableName, editData, editId, stringValue);
+        }
+        
+        else if(posRadio.isSelected())
+        {
+            stringValue = editValueField.getText();
+            editData = "POSITION";
+            baza.akutalizujDane(tableName, editData, editId, stringValue);
+        }
+        
+        else if(salaryRadio.isSelected())
+        {
+            intValue = Integer.parseInt(editValueField.getText());
+            editData = "SALARY";
+            baza.akutalizujDane(tableName, editData, editId, intValue);
+        }
+
+        else if(bonusRadio.isSelected())
+        {
+            intValue = Integer.parseInt(editValueField.getText());
+            editData = "BONUS";
+            baza.akutalizujDane(tableName, editData, editId, intValue);
+        }
+
+        else if(childrenRadio.isSelected())
+        {
+            intValue = Integer.parseInt(editValueField.getText());
+            editData = "CHILDREN";
+            baza.akutalizujDane(tableName, editData, editId, intValue);
+        }
+
+        else if(ageRadio.isSelected())
+        {
+            intValue = Integer.parseInt(editValueField.getText());
+            editData = "AGE";
+            baza.akutalizujDane(tableName, editData, editId, intValue);
+        }
+        else {
+            infoLabel.setText("Najpierw Wybierz Która Wartość!");   
+        }
+        
+    }
+
 }
