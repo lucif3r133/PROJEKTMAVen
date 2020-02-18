@@ -4,7 +4,7 @@ public class Firma {
 
     private String companyName;
     private String wlasciciel;
-    private String rodzajDzialalnosci;
+    private String password;
 
 
     /**
@@ -13,11 +13,11 @@ public class Firma {
     public Firma() {
     }
 
-    public Firma(String companyName, String wlasciciel, String rodzajDzialalnosci) {
+    public Firma(String companyName, String wlasciciel, String password) {
 
         this.companyName = companyName;
         this.wlasciciel = wlasciciel;
-        this.rodzajDzialalnosci = rodzajDzialalnosci;
+        this.password = password;
 
     }
 
@@ -37,11 +37,11 @@ public class Firma {
         this.wlasciciel = wlasciciel;
     }
 
-    public String getRodzajDzialalnosci() {
-        return rodzajDzialalnosci;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRodzajDzialalnosci(String rodzajDzialalnosci) {
-        this.rodzajDzialalnosci = rodzajDzialalnosci;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -61,7 +61,7 @@ public class PracownicyBaza {
         try {
             wynik = "";
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM " + tableName + ";" );
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM " + tableName + " ORDER BY ID;" );
             while ( rs.next() ) {
                 int id = rs.getInt("id");
                 String  name = rs.getString("namelastname");

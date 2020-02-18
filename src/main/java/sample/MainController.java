@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -21,9 +22,11 @@ public class MainController implements Initializable{
 
     Firma company = new Firma();
 
-    private Boolean czyUstawione=false;
+    private Boolean czyZalogowany=false;
 
     Stage stage;
+
+    login log = new login();
 
     public Stage getStage() { return stage; }
 
@@ -31,7 +34,10 @@ public class MainController implements Initializable{
     void setStage(Stage stage) { this.stage = stage; }
 
     @FXML
-    TextField companyNameField, wlascField, rodzajField;
+    TextField companyNameField, wlascField;
+
+    @FXML
+    PasswordField passField;
 
     @FXML
     Label companyNameLabel, companyNameErrorLabel, startLabel;
@@ -52,6 +58,13 @@ public class MainController implements Initializable{
         System.exit(0);
     }
 
+    /*
+     public void dodajUzytkownika(){
+     log.dodajUzytkownika(1,"admin","password");
+     log.dodajUzytkownika(2, "testlogin", "testpassword");
+     }
+     */
+
     /**
      * METODA ZAMYKAJĄCA PROGRAM
      */
@@ -65,18 +78,26 @@ public class MainController implements Initializable{
      * METODA OBSŁUGIWANA PRZEZ PRZYCISK USTAWIAJĄCY USTAWIENIE WARTOŚCI W NASZYM OBIEKCIE FIRMA
      */
     public void setCompanyInfo() {
-        if(companyNameField.getText().equals("") || wlascField.getText().equals("") || rodzajField.getText().equals(""))  {
+        if(companyNameField.getText().equals("") || passField.getText().equals("") || wlascField.getText().equals(""))  {
             companyNameErrorLabel.setText("Wprowadź Dane Firmy!");
         }
         else
         {
             company.setCompanyName(companyNameField.getText());
-            company.setRodzajDzialalnosci(rodzajField.getText());
+            company.setPassword(passField.getText());
             company.setWlasciciel(wlascField.getText());
 
-            companyNameLabel.setText("Zarządzaj firmą " + company.getCompanyName() + " z naszą pomocą, dziękujemy za zaufanie!");
-            czyUstawione = true;
-            companyNameErrorLabel.setText("");
+            if(company.getPassword().equals(log.sprawdzDane(company.getWlasciciel()))) {
+                companyNameLabel.setText("Zarządzaj firmą " + company.getCompanyName() + " z naszą pomocą, dziękujemy za zaufanie!");
+                czyZalogowany = true;
+                companyNameErrorLabel.setText("");
+                wlascField.setEditable(false);
+                passField.setEditable(false);
+            }
+            else
+            {
+                companyNameErrorLabel.setText("Błedne dane!");
+            }
         }
 
     }
@@ -85,9 +106,9 @@ public class MainController implements Initializable{
      * METODA OTWIERAJĄCA NOWE OKNO PROGRAMU W KTÓRYM BĘDZIEMY OBSŁUGIWAĆ TABELE BAZY DANYCH INFORMACJI O NASZEJ FIRMIE
      */
     public void goToSecondWindow() throws IOException {
-        if(czyUstawione==false)
+        if(czyZalogowany==false)
         {
-            companyNameErrorLabel.setText("Najpierw Wprowadź Nazwe Firmy!");
+            companyNameErrorLabel.setText("Zaloguj się!");
         }
         else
         {
@@ -98,7 +119,7 @@ public class MainController implements Initializable{
             Scene scene = new Scene(fxmlloader.load());
 
             stage = new Stage();
-            stage.setTitle(company.getCompanyName() + " / Wlasciciel: " + company.getWlasciciel() + " / Działalność: " + company.getRodzajDzialalnosci() );
+            stage.setTitle(company.getCompanyName() + " / Wlasciciel: " + company.getWlasciciel() );
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setOnCloseRequest((e)->(secondWindow.exitSecondWindow()));
@@ -114,6 +135,6 @@ public class MainController implements Initializable{
      */
     public void getCompanyDetails(){
 
-        companyNameErrorLabel.setText( " Firma:  " + company.getCompanyName() + " / Wlasciciel: " + company.getWlasciciel() + " / Działalność: " + company.getRodzajDzialalnosci());
+        companyNameErrorLabel.setText( " Firma:  " + company.getCompanyName() + " / Wlasciciel: " + company.getWlasciciel());
     }
 }
