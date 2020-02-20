@@ -18,6 +18,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ *   KONTROLER PIERWSZEGO OKNA
+ */
+
 public class MainController implements Initializable{
 
     Firma company = new Firma();
@@ -59,6 +63,9 @@ public class MainController implements Initializable{
     }
 
     /*
+
+     DODAWANIE PRZYKLADOWYCH HASEL I LOGINOW
+
      public void dodajUzytkownika(){
      log.dodajUzytkownika(1,"admin","password");
      log.dodajUzytkownika(2, "testlogin", "testpassword");
@@ -75,7 +82,8 @@ public class MainController implements Initializable{
     }
 
     /**
-     * METODA OBSŁUGIWANA PRZEZ PRZYCISK USTAWIAJĄCY USTAWIENIE WARTOŚCI W NASZYM OBIEKCIE FIRMA
+     * METODA OBSŁUGIWANA PRZEZ PRZYCISK USTAWIAJĄCY WARTOSCI W OBIEKCIE KLASY FIRMA
+     * ORAZ WYKORZYSTUJACA METODA DZIĘKI KTOREJ MOZEMY LOGOWAĆ SIĘ DO PROGRAMU CO UMOZLIWIA PRZEJSCIE DO KOLEJNEGO OKNA
      */
     public void setCompanyInfo() {
         if(companyNameField.getText().equals("") || passField.getText().equals("") || wlascField.getText().equals(""))  {

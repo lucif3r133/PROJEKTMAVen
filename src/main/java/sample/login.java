@@ -2,6 +2,11 @@ package sample;
 
 import java.sql.*;
 
+
+/**
+ * KLASA DZIEKI KTOREJ TWORZYMY LOGOWANIE DO PROGRAMU
+ */
+
 public class login {
 
     private Connection con;
@@ -21,6 +26,9 @@ public class login {
         }
     }
 
+    /**
+     * FUNKCJA UMOZLIWIA WPROWADZANIE NOWYCH UZYTKOWNIKOW - UZYWANA ZEBY DODAC PRZYKLADOWE LOGINY I HASLA
+     */
     public void dodajUzytkownika(int id, String username, String password) {
         Statement stmt = null;
         try {
@@ -35,6 +43,9 @@ public class login {
 
     }
 
+    /**
+     * FUNKCJA ZWRACAJACA WARTOSC Z KOLUMNY PASSWORD DLA PODANEGO USERNAME
+     */
     public String sprawdzDane(String username) {
         String password = null;
         try {

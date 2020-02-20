@@ -9,7 +9,6 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.secondWindow">
    <children>
 
@@ -109,7 +108,7 @@
          </StackPane.margin>
       </TextField>
 
-      <TextField fx:id="tableNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="156.0" promptText="Table Name" StackPane.alignment="BOTTOM_LEFT">
+      <TextField fx:id="tableNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="156.0" promptText="np. tabelka991" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
             <Insets bottom="60.0" left="30.0" />
          </StackPane.margin>
@@ -274,11 +273,21 @@
          </StackPane.margin>
       </TextField>
 
-      <Button fx:id="editButton" mnemonicParsing="false" text="Potwierdź" onAction="#editValue" StackPane.alignment="CENTER_LEFT">
+      <Button fx:id="editButton" mnemonicParsing="false" onAction="#editValue" text="Potwierdź" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets left="170.0" top="150.0" />
          </StackPane.margin>
       </Button>
+      <Button mnemonicParsing="false" onAction="#jedenPracownik" text="Wyswietl Pracownika o ID:" StackPane.alignment="BOTTOM_CENTER">
+         <StackPane.margin>
+            <Insets bottom="20.0" right="30.0" />
+         </StackPane.margin>
+      </Button>
+      <TextField fx:id="oneidfield" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="33.0" promptText="Id" text="1" StackPane.alignment="BOTTOM_CENTER">
+         <StackPane.margin>
+            <Insets bottom="20.0" left="170.0" />
+         </StackPane.margin>
+      </TextField>
 
    </children>
 </StackPane>

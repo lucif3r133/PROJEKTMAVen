@@ -7,6 +7,10 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ *   KONTROLER DRUGIEGO OKNA
+ */
+
 public class secondWindow implements Initializable {
 
 
@@ -17,7 +21,7 @@ public class secondWindow implements Initializable {
     @FXML
     TextField tableNameField, nameField, positionField, idField, ageField, salaryField,
               bonusField, childrenField, deleteidField, bonusAddField, bonusidField,
-              editValueField, editIdField;
+              editValueField, editIdField, oneidfield;
 
     @FXML
     Label infoLabel;
@@ -216,6 +220,31 @@ public class secondWindow implements Initializable {
             }
 
             selectFullTable();
+        }
+    }
+
+
+    /**
+     * METODA OBSLUGIWANA PRZEZ PRZYCISK WYSWIETLAJACY DANE JEDNEGO PRACOWNIKA
+     */
+    public void jedenPracownik(){
+        if(tableName.equals(""))
+        {
+            infoLabel.setText("Najpierw połącz się lub stwórz nową tabele!");
+        }
+        else {
+            if(oneidfield.getText().equals(""))
+            {
+                infoLabel.setText("Najpierw podaj ID!");
+            }
+            else
+                {
+                int id = Integer.parseInt(oneidfield.getText());
+
+                String output = baza.selectPracownik(tableName, id);
+
+                textArea.setText(output);
+            }
         }
     }
 

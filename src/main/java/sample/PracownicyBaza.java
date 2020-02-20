@@ -182,4 +182,33 @@ public class PracownicyBaza {
         }
     }
 
+    /**
+     * @param tableName
+     * @return FUNKCJA ZWRACAJĄCA WIERSZE Z TABELI O PODANYM ID
+     */
+    public String selectPracownik(String tableName, int idin) {
+        try {
+            wynik = "";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM " + tableName + " WHERE ID=" + idin +";" );
+            while ( rs.next() ) {
+                int id = rs.getInt("id");
+                String  name = rs.getString("namelastname");
+                int age  = rs.getInt("age");
+                float salary = rs.getFloat("salary");
+                String  position = rs.getString("position");
+                int children  = rs.getInt("children");
+                float bonus = rs.getFloat("bonus");
+
+                wynik = wynik + ("ID: " + id + "\nImie i nazwisko: " + name + "\nWiek: " + age + "\nPensja: " + salary + "\nStanowisko: " + position + "\nDzieci: " + children + "\nPremia: " + bonus + "\n\n" );
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return wynik;
+    }
+
 }

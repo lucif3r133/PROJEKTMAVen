@@ -1,15 +1,15 @@
 package sample;
 
+/**
+ * KLASA W KTÓREJ ZAPISUJEMY INFORMACJE O FIRMIE W PIERRWSZYM OKNIE
+ */
+
 public class Firma {
 
     private String companyName;
     private String wlasciciel;
     private String password;
 
-
-    /**
-     * KLASA W KTÓREJ ZAPISUJEMY INFORMACJE O FIRMIE W PIERRWSZYM OKNIE
-     */
     public Firma() {
     }
 
